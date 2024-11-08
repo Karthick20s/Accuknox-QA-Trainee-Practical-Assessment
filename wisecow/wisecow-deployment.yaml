@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wisecow-deployment
+spec:
+  replicas: 2 # Number of pod replicas
+  selector:
+    matchLabels:
+      app: wisecow
+  template:
+    metadata:
+      labels:
+        app: wisecow
+    spec:
+      containers:
+        - name: wisecow-container
+          image: king838/img:latest
+          # Use your image name and tag
+          ports:
+            - containerPort: 3000 # The port your application is running on
